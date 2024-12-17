@@ -1,0 +1,30 @@
+@font-face {
+    font-family: playFair; 
+    src: url(PlayfairDisplay-Regular.ttf);
+}
+
+:root {
+    --height: 30px
+}
+body {
+    font-family: playFair;
+}
+#home {
+    display: flex;
+    justify-content: center;
+}
+#creator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+input {
+    width: 55px;
+    text-align: center;
+    font-size: 17px;
+    height: var(--height);
+}
+button {
+    height: var(--height);
+}
