@@ -13,11 +13,26 @@ body {
     display: flex;
     justify-content: center;
 }
-#creator {
+.control {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+}
+#numbers {
+    display: grid;
+    grid-template-columns: repeat(20, auto);
+    gap: 10px;
+}
+.randomNumbersCell {
+    height: 50px;
+    background-color: lightgray;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 input {
     width: 55px;
