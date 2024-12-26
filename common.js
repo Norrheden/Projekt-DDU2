@@ -16,20 +16,28 @@ creatorDOM.appendChild(buttonElement)
 function generateGridOfRandomNumbers(howManyRandomNumbers){
     
     for(let i = 0; i<howManyRandomNumbers; i++) {
-        let div = document.createElement("div");
-        div.classList.add("randomNumbersCell");
-        div.textContent = randInt(0,99);
-        numbersDOM.appendChild(div)
+        let divCell = document.createElement("div");
+        divCell.classList.add("randomNumbersCell");
+        divCell.textContent = randInt(0,99);
+        numbersDOM.appendChild(divCell)
+        
     }
+    
 
 }
 
+
+
+
 buttonElement.addEventListener("click", function(){
     numbersDOM.innerHTML = ""
-   
     generateGridOfRandomNumbers(inputElement.value)
+    
 
 })
+
+
+
 
 
 
@@ -37,6 +45,4 @@ function randInt(min, max) {
     return min + Math.floor((max + 1 - min) * Math.random())
 }
 
-function createGrid() {
 
-}

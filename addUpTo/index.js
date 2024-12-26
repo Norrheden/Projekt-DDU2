@@ -10,3 +10,27 @@ const buttonElementAddUp = document.createElement("button");
 buttonElementAddUp.textContent = `Find two cells that add up`
 addUpDom.appendChild(buttonElementAddUp)
 
+
+
+buttonElementAddUp.addEventListener("click", function(){
+
+    let divsCells = document.querySelectorAll(".randomNumbersCell");
+    let sum = inputElemntAddUp.value;
+    let sumFound = false;
+    
+    for(let i = 0; i < divsCells.length; i++) {
+        divsCells[i].classList.remove("addUpToColorCell");
+        for(let j = 0; j < divsCells.length; j++) {
+            divsCells[j].classList.remove("addUpToColorCell");
+            if(i !==j && (parseInt(divsCells[i].textContent) + parseInt(divsCells[j].textContent)) == parseInt(sum)) {
+                divsCells[i].classList.add("addUpToColorCell");
+                divsCells[j].classList.add("addUpToColorCell");
+                sumFound = true;
+                break;
+            }
+        }
+        if(sumFound) {
+            break;
+        }
+    }
+})
