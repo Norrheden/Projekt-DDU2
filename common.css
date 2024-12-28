@@ -43,6 +43,3 @@ input {
 button {
     height: var(--height);
 }
-.addUpToColorCell {
-    background: rgba(205, 254, 194,1);
-}

@@ -22,22 +22,21 @@ function generateGridOfRandomNumbers(howManyRandomNumbers){
         numbersDOM.appendChild(divCell)
         
     }
-    
 
 }
 
-
-
+let divsCells = null;
+let checkIfWehavecreatedRandomsCells = false;
 
 buttonElement.addEventListener("click", function(){
     numbersDOM.innerHTML = ""
     generateGridOfRandomNumbers(inputElement.value)
+    divsCells = document.querySelectorAll(".randomNumbersCell");
+    checkIfWehavecreatedRandomsCells = true;
+
     
 
 })
-
-
-
 
 
 

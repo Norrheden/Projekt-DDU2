@@ -1,0 +1,10 @@
+
+.markCellWithBlue:hover {
+    background-color: lightblue;
+}
+.markCellWithOrange:hover {
+    background-color: orange;
+}
+.markCellWithRed {
+    background-color: red;
+}
