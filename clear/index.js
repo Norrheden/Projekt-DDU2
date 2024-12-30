@@ -8,12 +8,12 @@ let checkIfWehavecreatedRandomsCells = false;
 
 document.addEventListener("click", function() {
     if (!checkIfWehavecreatedRandomsCells) {
-        divsCellsAddClass();
+        divsCellsAddClassForClear();
         checkIfWehavecreatedRandomsCells = true;
     }
 });
 
-function divsCellsAddClass() {
+function divsCellsAddClassForClear() {
     for (let i = 0; i < divsCells.length; i++) {
 
         textForCell.push(divsCells[i].textContent);
