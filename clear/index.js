@@ -6,12 +6,21 @@ clearDOM.appendChild(buttonElemntClear)
 let textForCell = [];
 let checkIfWehavecreatedRandomsCells = false;
 
+
+
+
 document.addEventListener("click", function() {
+    
     if (!checkIfWehavecreatedRandomsCells) {
         divsCellsAddClassForClear();
         checkIfWehavecreatedRandomsCells = true;
     }
-});
+    
+
+})
+
+
+
 
 function divsCellsAddClassForClear() {
     for (let i = 0; i < divsCells.length; i++) {

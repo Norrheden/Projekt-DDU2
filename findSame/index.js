@@ -18,13 +18,26 @@ document.addEventListener("click", function() {
 
 let takeCellsValue = 0;
 
+
+
 function divsCellsAddClassForFindSame(){
     for(let i = 0; i<divsCells.length; i++) {
+        divsCells[i].classList.remove("markCellWithGreen")
         divsCells[i].addEventListener("click", function(){
             divsCells[i].classList.add("markCellWithGreen")
             takeCellsValue = divsCells[i].textContent;
+            findSameCellInTheGrid(takeCellsValue)
             console.log(takeCellsValue)
 
         })
+    }
+    
+}
+function findSameCellInTheGrid(takeCellsValue) {
+    for(let i = 0; i<divsCells.length; i++) {
+        console.log("sf")
+        if(takeCellsValue == divsCells[i].textContent) {
+            divsCells[i].classList.add("markCellWithGreen")
+        }
     }
 }
