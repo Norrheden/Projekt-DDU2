@@ -27,6 +27,9 @@ function generateGridOfRandomNumbers(howManyRandomNumbers){
 
 }
 
+let textForCell = [];
+let checkIfWehavecreatedRandomsCells = false;
+
 let divsCells = null;
 
 
