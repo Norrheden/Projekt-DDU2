@@ -8,6 +8,12 @@
     outline: none;
 
 }
-.orangeColor:hover {
+.lightOrangeColor:hover {
     background-color: rgb(250, 202, 114);
+}
+.markOrange {
+    background-color: orange;
+}
+.markRed {
+    background-color: red;
 }
