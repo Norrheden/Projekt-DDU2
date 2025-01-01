@@ -1,3 +1,13 @@
 #removeInput {
     width: 250px;
 }
+.noHoverAndClick:hover {
+    pointer-events: none;
+}
+.noHoverAndClick{
+    outline: none;
+
+}
+.orangeColor:hover {
+    background-color: rgb(250, 202, 114);
+}
