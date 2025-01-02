@@ -5,3 +5,57 @@ const pElementSumOfAll = document.createElement("p"); pElementSumOfAll.textConte
 const sumOfAllInput = document.createElement("input"); sumOfAllInput.placeholder = "-"; sumFirstRowDOM.appendChild(sumOfAllInput); sumOfAllInput.readOnly = true; sumOfAllInput.classList.add("noHoverAndClick")
 const pElementSumOfMarked = document.createElement("p"); pElementSumOfMarked.textContent = "Sum of marked:"; sumSecondRowDOM.appendChild(pElementSumOfMarked);
 const sumOfMarkedInput = document.createElement("input"); sumOfMarkedInput.placeholder = "-"; sumSecondRowDOM.appendChild(sumOfMarkedInput); sumOfMarkedInput.readOnly = true; sumOfMarkedInput.classList.add("noHoverAndClick")
+const resetButton = document.createElement("button"); resetButton.textContent = "Reset"; sumSecondRowDOM.appendChild(resetButton);
+
+let sumOfAllCounter = 0;
+let sumOfMarkedCounter = 0;
+
+document.addEventListener("click", function() {
+
+    if (!checkIfWehavecreatedRandomsCells) {
+        SumPageF1();
+        sumOfMarkedInput.placeholder = "-";
+        sumOfAllCounter = 0;
+        sumOfMarkedCounter = 0;
+
+        checkIfWehavecreatedRandomsCells = true;
+    }
+    
+
+})
+
+function SumPageF1(){
+    sumOfAllCounter = 0;
+    for(let i = 0; i<divsCells.length; i++ ) {
+        divsCells[i].addEventListener("click", function(){
+            if(divsCells[i].classList.contains("markGreen")) {
+                divsCells[i].classList.remove("markGreen")
+                sumOfMarkedCounter -= Number(divsCells[i].textContent)
+                sumOfMarkedInput.placeholder = `${sumOfMarkedCounter}`
+                console.log(sumOfMarkedCounter)
+            } else {
+                divsCells[i].classList.add("markGreen");
+                sumOfMarkedCounter += Number(divsCells[i].textContent)
+                sumOfMarkedInput.placeholder = `${sumOfMarkedCounter}`
+                console.log(sumOfMarkedCounter)
+
+            }
+            
+
+        })
+        sumOfAllCounter += Number(divsCells[i].textContent)
+    }
+    console.log(sumOfAllCounter)
+    sumOfAllInput.placeholder = `${sumOfAllCounter}`
+}
+
+resetButton.addEventListener("click",function(){
+    for(let i = 0; i< divsCells.length; i++) {
+        if(divsCells[i].classList.contains("markGreen")) {
+            divsCells[i].classList.remove("markGreen")
+            sumOfMarkedCounter = 0;
+            sumOfMarkedInput.placeholder = `-`
+
+        }
+    }
+})
