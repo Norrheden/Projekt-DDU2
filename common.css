@@ -9,9 +9,13 @@
 body {
     font-family: playFair;
 }
-#home {
+.displayFlex {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.links {
+    gap: 20px;
 }
 .control {
     display: flex;
@@ -21,18 +25,16 @@ body {
 
 }
 #numbers {
-    display: grid;
-    grid-template-columns: repeat(20, auto);
+    flex-wrap: wrap;
     gap: 10px;
+    margin-top: 20px;
 }
+
 .randomNumbersCell {
     height: 50px;
     background-color: lightgray;
     width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    border-radius: 20%;
 }
 input {
     width: 55px;

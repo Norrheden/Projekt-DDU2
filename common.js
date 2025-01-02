@@ -18,6 +18,7 @@ function generateGridOfRandomNumbers(howManyRandomNumbers){
     for(let i = 0; i<howManyRandomNumbers; i++) {
         let divCell = document.createElement("div");
         divCell.classList.add("randomNumbersCell");
+        divCell.classList.add("displayFlex")
         divCell.textContent = randInt(0,99);
         numbersDOM.appendChild(divCell)
         
