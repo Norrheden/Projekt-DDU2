@@ -1,5 +1,4 @@
 const addUpDom = document.getElementById("addUp");
-
 const pElement = document.createElement("p");
 pElement.textContent = `Add up to:`
 addUpDom.appendChild(pElement)
@@ -12,11 +11,12 @@ addUpDom.appendChild(buttonElementAddUp)
 
 
 
-buttonElementAddUp.addEventListener("click", function(){
 
+
+
+buttonElementAddUp.addEventListener("click", function(){
     let sum = inputElemntAddUp.value;
     let sumFound = false;
-    
     for(let i = 0; i < divsCells.length-1; i++) {
         divsCells[i].classList.remove("addUpToColorCell");
         for(let j = 0; j < divsCells.length; j++) {

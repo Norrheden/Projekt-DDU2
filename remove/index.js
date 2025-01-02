@@ -35,35 +35,39 @@ function addEventListenerToRemovePage (){
 
 }
 
-
+let randNumber = null;
 getRandomNumberButton.addEventListener("click", function(){
-    let randNumber = randInt(0,99);
+    console.log(randNumber)
+    counter = 0;
+    randNumber = randInt(0,99);
     getRandomNumberInput.placeholder = randNumber
     removeInput.placeholder = `-`
-    findTheRandomNumber(randNumber)
+    findTheRandomNumber()
     
     
 })
 
-let getNumber = null;
+
 let counter = 0;
 
-function findTheRandomNumber(randNumber) {
+function findTheRandomNumber() {
+    
     for(let i = 0; i<divsCells.length; i++) {
         divsCells[i].classList.remove("markOrange")
         if(randNumber == divsCells[i].textContent) {
             divsCells[i].classList.add("markOrange");
-            getNumber = divsCells[i].textContent;
             counter = counter + 1;
+           
 
         }
     }
+    
 }
 
 removeButton.addEventListener("click", function(){
     let found = false;
     for(let i = 0; i<divsCells.length; i++) {
-        if(getNumber == divsCells[i].textContent) {
+        if(randNumber == divsCells[i].textContent) {
             divsCells[i].textContent = "X"
             divsCells[i].classList.add("markRed")
             divsCells[i].classList.remove("lightOrangeColor")
@@ -72,8 +76,8 @@ removeButton.addEventListener("click", function(){
     }
 
     if(found) {
-        removeInput.placeholder = `${getNumber} removed ${counter}`;
-        counter = 0;
+        removeInput.placeholder = `${randNumber} removed ${counter}`;
+        
 
     } else {
         removeInput.placeholder = `Nothing to remove`;
