@@ -7,18 +7,12 @@ resetButton.textContent = "Reset";
 findSameDOM.appendChild(resetButton)
 
 
-
 document.addEventListener("click", function() {
     if (!checkIfWehavecreatedRandomsCells) {
         divsCellsAddClassForFindSame();
         checkIfWehavecreatedRandomsCells = true;
     }
 });
-
-
-let takeCellsValue = 0;
-let counter = 0;
-
 
 
 function divsCellsAddClassForFindSame(){
@@ -54,3 +48,6 @@ resetButton.addEventListener("click", function(){
     }
     findSameText.textContent = "Click on a number to find copies";
 })
+
+let takeCellsValue = 0;
+let counter = 0;

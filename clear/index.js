@@ -4,9 +4,12 @@ buttonElemntClear.textContent = "Fill Cleared"
 clearDOM.appendChild(buttonElemntClear)
 
 
+
+
 document.addEventListener("click", function() {
 
     if (!checkIfWehavecreatedRandomsCells) {
+        textForCell.splice(0, textForCell.length)
         divsCellsAddClassForClear();
         checkIfWehavecreatedRandomsCells = true;
     }
@@ -44,3 +47,7 @@ buttonElemntClear.addEventListener("click", function() {
         divsCells[i].textContent = textForCell[i];
     }
 });
+
+let textForCell = [];
+
+

@@ -10,10 +10,6 @@ buttonElementAddUp.textContent = `Find two cells that add up`
 addUpDom.appendChild(buttonElementAddUp)
 
 
-
-
-
-
 buttonElementAddUp.addEventListener("click", function(){
     let sum = inputElemntAddUp.value;
     let sumFound = false;

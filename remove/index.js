@@ -17,10 +17,11 @@ removeDOM.appendChild(getRandomNumberInput);
 removeDOM.appendChild(removeButton);
 removeDOM.appendChild(removeInput);
 
+
 document.addEventListener("click", function() {
 
     if (!checkIfWehavecreatedRandomsCells) {
-        addEventListenerToRemovePage();
+        addClassForRemovePage();
         checkIfWehavecreatedRandomsCells = true;
     }
     
@@ -28,16 +29,14 @@ document.addEventListener("click", function() {
 })
 
 
-function addEventListenerToRemovePage (){
+function addClassForRemovePage (){
     for(let i = 0; i<divsCells.length; i++ ) {
         divsCells[i].classList.add("lightOrangeColor")
     }
 
 }
 
-let randNumber = null;
 getRandomNumberButton.addEventListener("click", function(){
-    console.log(randNumber)
     counter = 0;
     randNumber = randInt(0,99);
     getRandomNumberInput.placeholder = randNumber
@@ -47,8 +46,6 @@ getRandomNumberButton.addEventListener("click", function(){
     
 })
 
-
-let counter = 0;
 
 function findTheRandomNumber() {
     
@@ -85,3 +82,6 @@ removeButton.addEventListener("click", function(){
 
     
 })
+
+let counter = 0;
+let randNumber = null;
