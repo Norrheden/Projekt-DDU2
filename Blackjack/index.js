@@ -8,27 +8,37 @@ const playerHandDOM = document.getElementById("playerHand");
 const bankHandDOM = document.getElementById("bankHand")
 const counterForPlayerDOM = document.getElementById("counterForPlayer")
 const counterForBankDOM = document.getElementById("counterForBank")
+const putButtonDOM = document.getElementById("putButton")
+const instructionsDOM = document.getElementById("instructions")
+
 
 let deck = [];
 let countValueForPlayer = 0;
 let countValueForBank = 0;
+let gamePlayed = true
 
-placeBetButtonDOM.addEventListener("keydown", function(event) {
-    if (event.key === "") {
-        event.preventDefault();
-    }
-});
+
 placeBetButtonDOM.addEventListener("click",function(){
-    if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value)) {
-        deck = []
+    if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value) && gamePlayed) {
+        gamePlayed = false
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) - Number(placeBetInputDOM.value)}`
         deck = getDeck()
         dealCardToPlayer(2, deck)
         dealCardToBank(1, deck)
         console.log(deck)
+        instructionsDOM.textContent = "Hit or stay"
+        
+
 
     }
 })
+document.addEventListener("keydown",function(event){
+    if(event.code === "Space") {
+        dealCardToPlayer(1,deck)
+    }
+})
+
+
 
 
 
@@ -36,7 +46,7 @@ placeBetButtonDOM.addEventListener("click",function(){
 const colors = ["Club", "Diamond", "Spade", "Heart"]
 function getDeck(){
     for(let color of colors) {
-        for(let i = 1; i<=13; i++) {
+        for(let i = 1; i<=10; i++) {
             deck.push({
                 color:color,
                 value:i,
@@ -74,6 +84,8 @@ function dealCardToBank(nCards,deck) {
     }
     counterForBankDOM.textContent = countValueForBank
 }
+
+
 function randNumber(array) {
     return  Math.floor((array.length) * Math.random())
 }
