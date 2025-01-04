@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+h1, h2 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 40px;
+}
+h2 {
+    margin-bottom: 120px;
+    font-size: 25px;
+    
+}
+
+#table {
+    border: 30px solid rgb(100, 27, 27);
+    width: 1000px;
+    height: 600px;
+    border-radius: 10% 10% 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #35654d;
+}
