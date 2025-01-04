@@ -1,7 +1,7 @@
 body {
     margin: 0;
 }
-main {
+section1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,12 +16,32 @@ main {
 h1, h2 {
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 40px;
+    font-size: 50px;
+    margin: 0;
 }
 h2 {
-    margin-bottom: 120px;
-    font-size: 25px;
-    
+    font-size: 35px;
+}
+#text {
+    padding-top: 90px;
+}
+#wallet {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+#bankTable {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+
+}
+#playerTable {
+    display: flex;
+    justify-content: center;
+    padding-top: 85px;
 }
 
 #table {
@@ -29,8 +49,33 @@ h2 {
     width: 1000px;
     height: 600px;
     border-radius: 10% 10% 50% 50%;
+    background-color: #35654d;
+}
+section2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #35654d;
+    padding-top: 20px;
+    gap: 5px;
 }
+.choiceButtons {
+    width: 300px;
+    height: 50px;
+}
+section3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+#placeBetInput {
+    height: 50px;
+}
+#placeBetButton {
+    height: 40px;
+}
+.cardsWhiteBorder {
+    height: 80px;
+    width: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.5); ;
+}
+

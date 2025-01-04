@@ -7,26 +7,45 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <main>
-        
+    <section1>
         <div id="container">
             <div id="table">
                 <div id="bankTable">
-                    <div class="cards"></div>
+                    <div class="cardsWhiteBorder">
+                        <div id="bank" class="cards"></div>
+                    </div>
+                    
                 </div>
                 
                 <div id="text">
                     <h1>------Blackjack------</h1>
                     <h2>Place Your Bet</h2>
+                    <div id="wallet">
+                        <h2>Wallet:</h2>
+                        <h2 id="walletMoney">1000$</h2>
+                    </div>
                 </div>
                 
                 <div id="playerTable">
-                    <div class="cards"></div>
+                    <div class="cardsWhiteBorder">
+                        <div id="player" class="cards"></div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section1>
+    <section2>
+        <button class="choiceButtons" id="putButton">Put</button>
+        <button class="choiceButtons" id="stayButton">Stay</button>
+
+    </section2>
+    <section3>
+        <div>
+            <input type="text" placeholder="-" id="placeBetInput">
+            <button id="placeBetButton">Place Your bet</button>
+        </div>
         
-    </main>3
+    </section3>
 
     <script src="index.js"></script>
 </body>
