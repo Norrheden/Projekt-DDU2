@@ -31,12 +31,10 @@ function SumAllNumbers(){
                 divsCells[i].classList.remove("markGreen");
                 sumOfMarkedCounter -= Number(divsCells[i].textContent);
                 sumOfMarkedInput.placeholder = `${sumOfMarkedCounter}`;
-                console.log(sumOfMarkedCounter);
             } else {
                 divsCells[i].classList.add("markGreen");
                 sumOfMarkedCounter += Number(divsCells[i].textContent);
                 sumOfMarkedInput.placeholder = `${sumOfMarkedCounter}`;
-                console.log(sumOfMarkedCounter);
 
             }
             

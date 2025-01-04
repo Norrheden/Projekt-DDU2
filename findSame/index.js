@@ -25,7 +25,6 @@ function divsCellsAddClassForFindSame(){
             divsCells[i].classList.add("markCellWithGreen")
             takeCellsValue = divsCells[i].textContent;
             findSameCellInTheGrid(takeCellsValue)
-            console.log(takeCellsValue)
 
         })
     }

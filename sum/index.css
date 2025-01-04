@@ -7,3 +7,6 @@
 .sumInput {
     width: 120px;
 }
+::placeholder {
+    color: black;
+}

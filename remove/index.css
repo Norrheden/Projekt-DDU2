@@ -17,3 +17,6 @@
 .markRed {
     background-color: red;
 }
+::placeholder {
+    color: black;
+}
