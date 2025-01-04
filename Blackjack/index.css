@@ -82,3 +82,13 @@ section3 {
     text-align: center;
 }
 
+.cards {
+    height: 80px;
+    width: 60px;
+    background-color: white;
+    color: black;
+}
+#playerHand {
+    display: flex;
+    flex-wrap: wrap;
+}
