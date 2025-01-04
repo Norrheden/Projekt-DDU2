@@ -10,14 +10,18 @@ buttonElementAddUp.textContent = `Find two cells that add up`
 addUpDom.appendChild(buttonElementAddUp)
 
 
+
+
+
 buttonElementAddUp.addEventListener("click", function(){
     let sum = inputElemntAddUp.value;
     let sumFound = false;
-    for(let i = 0; i < divsCells.length-1; i++) {
+    for(let i = 0; i < divsCells.length; i++) {
         divsCells[i].classList.remove("addUpToColorCell");
-        for(let j = 0; j < divsCells.length; j++) {
-            divsCells[j].classList.remove("addUpToColorCell");
-            if(i !==j && (parseInt(divsCells[i].textContent) + parseInt(divsCells[j].textContent)) == parseInt(sum)) {
+    }
+    for(let i = 0; i < divsCells.length-1; i++) {
+        for(let j = i + 1; j<divsCells.length; j++){
+            if(i !==j && (parseInt(divsCells[i].textContent) + parseInt(divsCells[j].textContent)) == sum) {
                 divsCells[i].classList.add("addUpToColorCell");
                 divsCells[j].classList.add("addUpToColorCell");
                 sumFound = true;

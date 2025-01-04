@@ -3,9 +3,6 @@ const buttonElemntClear = document.createElement("button")
 buttonElemntClear.textContent = "Fill Cleared"
 clearDOM.appendChild(buttonElemntClear)
 
-
-
-
 document.addEventListener("click", function() {
 
     if (!checkIfWehavecreatedRandomsCells) {
