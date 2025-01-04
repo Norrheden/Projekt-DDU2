@@ -23,8 +23,11 @@ h2 {
     font-size: 35px;
 }
 #text {
-    padding-top: 90px;
+    position: absolute;
+    top: 25%;
+    left: 36%;
 }
+
 #wallet {
     display: flex;
     justify-content: center;
@@ -41,7 +44,7 @@ h2 {
 #playerTable {
     display: flex;
     justify-content: center;
-    padding-top: 85px;
+    padding-top: 310px;
 }
 
 #table {
@@ -73,11 +76,7 @@ section3 {
 #placeBetButton {
     height: 40px;
 }
-.cardsWhiteBorder {
-    height: 80px;
-    width: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.5); ;
-}
+
 #information {
     text-align: center;
 }
@@ -87,8 +86,16 @@ section3 {
     width: 60px;
     background-color: white;
     color: black;
+    text-align: center;
 }
 #playerHand {
     display: flex;
-    flex-wrap: wrap;
+    gap: 5px;
+}
+#bankHand {
+    display: flex;
+    gap: 5px;
+}
+p {
+    margin: 0;
 }
