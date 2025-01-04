@@ -6,7 +6,18 @@ const placeBetButtonDOM = document.getElementById("placeBetButton");
 const walletMoneyDOM = document.getElementById("walletMoney");
 const playerHandDOM = document.getElementById("playerHand");
 const bankHandDOM = document.getElementById("bankHand")
+const counterForPlayerDOM = document.getElementById("counterForPlayer")
+const counterForBankDOM = document.getElementById("counterForBank")
 
+let deck = [];
+let countValueForPlayer = 0;
+let countValueForBank = 0;
+
+placeBetButtonDOM.addEventListener("keydown", function(event) {
+    if (event.key === "") {
+        event.preventDefault();
+    }
+});
 placeBetButtonDOM.addEventListener("click",function(){
     if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value)) {
         deck = []
@@ -14,23 +25,11 @@ placeBetButtonDOM.addEventListener("click",function(){
         deck = getDeck()
         dealCardToPlayer(2, deck)
         dealCardToBank(1, deck)
+        console.log(deck)
 
     }
 })
-placeBetButtonDOM.addEventListener("keydown", function(event) {
-    if (event.key === "") {
-        event.preventDefault();
-    }
-});
 
-
-
-
-
-
-
-
-let deck = [];
 
 
 
@@ -56,8 +55,10 @@ function dealCardToPlayer(nCards,deck) {
         cardDiv.classList.add("cards")
         cardDiv.innerHTML = `${card.color}<br>${card.value}`
         playerHandDOM.appendChild(cardDiv);
+        countValueForPlayer = countValueForPlayer + card.value
     }
-    console.log(deck)
+    counterForPlayerDOM.textContent = countValueForPlayer
+
 }
 function dealCardToBank(nCards,deck) {
     for(let i = 0; i<nCards; i++) {
@@ -68,8 +69,10 @@ function dealCardToBank(nCards,deck) {
         cardDiv.classList.add("cards")
         cardDiv.innerHTML = `${card.color}<br>${card.value}`
         bankHandDOM.appendChild(cardDiv);
+        countValueForBank = countValueForBank + card.value
+
     }
-    console.log(deck)
+    counterForBankDOM.textContent = countValueForBank
 }
 function randNumber(array) {
     return  Math.floor((array.length) * Math.random())

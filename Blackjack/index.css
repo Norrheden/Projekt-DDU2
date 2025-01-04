@@ -44,7 +44,7 @@ h2 {
 #playerTable {
     display: flex;
     justify-content: center;
-    padding-top: 310px;
+    padding-top: 280px;
 }
 
 #table {
@@ -98,4 +98,10 @@ section3 {
 }
 p {
     margin: 0;
+}
+#counterForPlayer {
+    padding-top: 40px;
+}
+#counterForBank {
+    padding-top: 20px;
 }
