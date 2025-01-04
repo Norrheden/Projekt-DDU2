@@ -1,3 +1,27 @@
+
+
+
+const placeBetInputDOM = document.getElementById("placeBetInput")
+const placeBetButtonDOM = document.getElementById("placeBetButton");
+
+
+placeBetButtonDOM.addEventListener("click",function(){
+    if(placeBetInputDOM.value >= 10) {
+        console.log(placeBetInputDOM.value)
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
 const colors = ["Clubs", "Diamonds", "Spades", "Hearts"]
 function getDeck(){
     const deck = [];

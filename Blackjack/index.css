@@ -78,4 +78,7 @@ section3 {
     width: 60px;
     border: 1px solid rgba(255, 255, 255, 0.5); ;
 }
+#information {
+    text-align: center;
+}
 
