@@ -10,12 +10,13 @@ const counterForPlayerDOM = document.getElementById("counterForPlayer")
 const counterForBankDOM = document.getElementById("counterForBank")
 const putButtonDOM = document.getElementById("putButton")
 const instructionsDOM = document.getElementById("instructions")
-
+const stayButtonDOM = document.getElementById("stayButton");
 
 let deck = [];
 let countValueForPlayer = 0;
 let countValueForBank = 0;
-let gamePlayed = true
+let gamePlayed = true;
+let checkForBank = true;
 
 
 placeBetButtonDOM.addEventListener("click",function(){
@@ -37,11 +38,18 @@ document.addEventListener("keydown",function(event){
         dealCardToPlayer(1,deck)
     }
 })
+stayButtonDOM.addEventListener("click", function(){
+    dealCardToBank(1, deck)
+    while(checkForBank) {
+        if(countValueForBank <= 16) {
+            dealCardToBank(1,deck);
+        } else {
+            checkForBank = false;
+        }
+    }
+    
 
-
-
-
-
+})
 
 const colors = ["Club", "Diamond", "Spade", "Heart"]
 function getDeck(){
@@ -84,6 +92,7 @@ function dealCardToBank(nCards,deck) {
     }
     counterForBankDOM.textContent = countValueForBank
 }
+
 
 
 function randNumber(array) {
