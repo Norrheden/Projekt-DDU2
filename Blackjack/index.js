@@ -119,37 +119,37 @@ function winOrLose() {
         bothGotBlackjack = true 
     }
     if(countValueForBank === 21) {
-        instructionsDOM.textContent = "Bank Got Blackjack!";
+        instructionsDOM.textContent = "Bank Got Blackjack!, Bet Again?";
 
     }
     if(countValueForPlayer === 21) {
-        instructionsDOM.textContent = "You Got Blackjack!";
+        instructionsDOM.textContent = "You Got Blackjack!, Bet Again?";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
 
     }
     if(countValueForBank > countValueForPlayer && countValueForBank < 21 && countValueForPlayer < 21) {
-        instructionsDOM.textContent = "Bank Won";
+        instructionsDOM.textContent = "Bank Won, Bet Again?";
 
     }
     if(countValueForBank < countValueForPlayer && countValueForBank < 21 && countValueForPlayer < 21) {
-        instructionsDOM.textContent = "You Won";
+        instructionsDOM.textContent = "You Won, Bet Again?";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
 
     }
     if(countValueForBank > 21 && countValueForPlayer < 21) {
-        instructionsDOM.textContent = "You Won";
+        instructionsDOM.textContent = "You Won, Bet Again?";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
     }
     if(countValueForBank < 21 && countValueForPlayer > 21) {
-        instructionsDOM.textContent = "Bank Won";
+        instructionsDOM.textContent = "Bank Won, Bet Again?";
         
     }
     if(countValueForBank === countValueForPlayer) {
-        instructionsDOM.textContent = "Its Even";
+        instructionsDOM.textContent = "Its Even, Bet Again?";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`
     }
     if(countValueForBank > 21 && countValueForPlayer > 21) {
-        instructionsDOM.textContent = "Both Lose";
+        instructionsDOM.textContent = "Both Lose, Bet Again?";
 
     }
     console.log(gameInProgress)

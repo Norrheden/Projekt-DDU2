@@ -10,6 +10,7 @@ section1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     
 }
 
@@ -24,8 +25,10 @@ h2 {
 }
 #text {
     position: absolute;
-    top: 25%;
-    left: 36%;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
 }
 
 #wallet {
