@@ -38,10 +38,7 @@ placeBetButtonDOM.addEventListener("click",function(){
         dealCardToBank(1, deck)
         console.log(deck)
         instructionsDOM.textContent = "Hit or Stay"
-        
-
-
-    }
+    } 
 })
 
 document.addEventListener("keydown",function(event){
@@ -119,11 +116,11 @@ function winOrLose() {
         bothGotBlackjack = true 
     }
     if(countValueForBank === 21) {
-        instructionsDOM.textContent = "Bank Got Blackjack!, Bet Again?";
+        instructionsDOM.textContent = "Bank Got Blackjack, Bet Again?";
 
     }
     if(countValueForPlayer === 21) {
-        instructionsDOM.textContent = "You Got Blackjack!, Bet Again?";
+        instructionsDOM.textContent = "You Got Blackjack, Bet Again?";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
 
     }
@@ -153,6 +150,9 @@ function winOrLose() {
 
     }
     console.log(gameInProgress)
+    if(Number(walletMoneyDOM.textContent == 0)) {
+        instructionsDOM.textContent = `No Money Left`;
+    }
 }
 
 
