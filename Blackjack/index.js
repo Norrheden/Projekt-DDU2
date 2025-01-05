@@ -19,6 +19,7 @@ let gamePlayed = true;
 let checkForBank = true;
 
 
+
 placeBetButtonDOM.addEventListener("click",function(){
     if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value) && gamePlayed) {
         gamePlayed = false
@@ -42,12 +43,13 @@ stayButtonDOM.addEventListener("click", function(){
     dealCardToBank(1, deck)
     while(checkForBank) {
         if(countValueForBank <= 16) {
-            dealCardToBank(1,deck);
+            dealCardToBank(1, deck);
         } else {
-            checkForBank = false;
+            checkForBank = false
         }
     }
-    
+    console.log(checkForBank)
+    winOrLose()
 
 })
 
@@ -91,6 +93,50 @@ function dealCardToBank(nCards,deck) {
 
     }
     counterForBankDOM.textContent = countValueForBank
+}
+function winOrLose() {
+    let playerGotBlackJack = false;
+    let bankGotBlackJack
+
+    console.log("Bank Value:", countValueForBank);
+    console.log("Player Value:", countValueForPlayer);
+
+    if(countValueForBank > 21 && countValueForPlayer > 21) {
+        instructionsDOM.textContent = "Both Busted";
+    }
+    if (countValueForBank == 21 && countValueForPlayer < 21) {
+        instructionsDOM.textContent = "The Bank Got Blackjack";
+        
+    }
+    if (countValueForBank == 21 && countValueForPlayer == 21) {
+        instructionsDOM.textContent = "Its Even";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`
+    }
+    if (countValueForPlayer == 21) {
+        instructionsDOM.textContent = "You Got Blackjack";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`;
+        
+    }
+    if (countValueForBank > countValueForPlayer && countValueForBank <= 21) {
+        instructionsDOM.textContent = "Bank Won";
+    }
+    if (countValueForPlayer > countValueForBank && countValueForPlayer <= 21) {
+        instructionsDOM.textContent = "You Won";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`;
+    }
+    if (countValueForPlayer > 21) {
+        instructionsDOM.textContent = "Bank Won";
+    }
+    if (countValueForBank > 21) {
+        instructionsDOM.textContent = "You Won";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`;
+    }
+    if (countValueForBank == countValueForPlayer) {
+        instructionsDOM.textContent = "Its Even";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`;
+    }
+
+    console.log(deck)
 }
 
 
