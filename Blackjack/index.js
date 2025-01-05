@@ -28,7 +28,7 @@ placeBetButtonDOM.addEventListener("click",function(){
         dealCardToPlayer(2, deck)
         dealCardToBank(1, deck)
         console.log(deck)
-        instructionsDOM.textContent = "Hit or stay"
+        instructionsDOM.textContent = "Hit or Stay"
         
 
 
@@ -95,47 +95,51 @@ function dealCardToBank(nCards,deck) {
     counterForBankDOM.textContent = countValueForBank
 }
 function winOrLose() {
-    let playerGotBlackJack = false;
-    let bankGotBlackJack
+    let bothGotBlackjack = false
 
     console.log("Bank Value:", countValueForBank);
     console.log("Player Value:", countValueForPlayer);
 
-    if(countValueForBank > 21 && countValueForPlayer > 21) {
-        instructionsDOM.textContent = "Both Busted";
+
+    if(countValueForPlayer === 21 && countValueForBank === 21) {
+        instructionsDOM.textContent = "Both Got Blackjack!";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`
+        bothGotBlackjack = true 
     }
-    if (countValueForBank == 21 && countValueForPlayer < 21) {
-        instructionsDOM.textContent = "The Bank Got Blackjack";
+    if(countValueForBank === 21) {
+        instructionsDOM.textContent = "Bank Got Blackjack!";
+
+    }
+    if(countValueForPlayer === 21) {
+        instructionsDOM.textContent = "You Got Blackjack!";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
+
+    }
+    if(countValueForBank > countValueForPlayer && countValueForBank < 21 && countValueForPlayer < 21 && !bothGotBlackjack) {
+        instructionsDOM.textContent = "Bank Won";
+
+    }
+    if(countValueForBank < countValueForPlayer && countValueForBank < 21 && countValueForPlayer < 21) {
+        instructionsDOM.textContent = "You Won";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
+
+    }
+    if(countValueForBank > 21 && countValueForPlayer < 21) {
+        instructionsDOM.textContent = "You Won";
+        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`
+    }
+    if(countValueForBank < 21 && countValueForPlayer > 21) {
+        instructionsDOM.textContent = "Bank Won";
         
     }
-    if (countValueForBank == 21 && countValueForPlayer == 21) {
+    if(countValueForBank === countValueForPlayer) {
         instructionsDOM.textContent = "Its Even";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`
     }
-    if (countValueForPlayer == 21) {
-        instructionsDOM.textContent = "You Got Blackjack";
-        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`;
-        
-    }
-    if (countValueForBank > countValueForPlayer && countValueForBank <= 21) {
-        instructionsDOM.textContent = "Bank Won";
-    }
-    if (countValueForPlayer > countValueForBank && countValueForPlayer <= 21) {
-        instructionsDOM.textContent = "You Won";
-        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`;
-    }
-    if (countValueForPlayer > 21) {
-        instructionsDOM.textContent = "Bank Won";
-    }
-    if (countValueForBank > 21) {
-        instructionsDOM.textContent = "You Won";
-        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + (2 * Number(placeBetInputDOM.value))}`;
-    }
-    if (countValueForBank == countValueForPlayer) {
-        instructionsDOM.textContent = "Its Even";
-        walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`;
-    }
+    if(countValueForBank > 21 && countValueForPlayer > 21) {
+        instructionsDOM.textContent = "Both Lose";
 
+    }
     console.log(deck)
 }
 
