@@ -16,12 +16,19 @@ let deck = [];
 let countValueForPlayer = 0;
 let countValueForBank = 0;
 let gamePlayed = true;
-let checkForBank = true;
+let dealCardToBankUntill = true;
+
+
 
 
 
 placeBetButtonDOM.addEventListener("click",function(){
     if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value) && gamePlayed) {
+        countValueForBank = 0;
+        countValueForPlayer = 0;
+        deck = []
+        playerHandDOM.innerHTML = ""
+        bankHandDOM.innerHTML = ""
         gamePlayed = false
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) - Number(placeBetInputDOM.value)}`
         deck = getDeck()
@@ -41,14 +48,14 @@ document.addEventListener("keydown",function(event){
 })
 stayButtonDOM.addEventListener("click", function(){
     dealCardToBank(1, deck)
-    while(checkForBank) {
+    while(dealCardToBankUntill) {
         if(countValueForBank <= 16) {
             dealCardToBank(1, deck);
         } else {
-            checkForBank = false
+            dealCardToBankUntill = false
         }
     }
-    console.log(checkForBank)
+    console.log(dealCardToBankUntill)
     winOrLose()
 
 })
@@ -80,6 +87,9 @@ function dealCardToPlayer(nCards,deck) {
     counterForPlayerDOM.textContent = countValueForPlayer
 
 }
+
+
+
 function dealCardToBank(nCards,deck) {
     for(let i = 0; i<nCards; i++) {
         const index = randNumber(deck)
@@ -94,6 +104,9 @@ function dealCardToBank(nCards,deck) {
     }
     counterForBankDOM.textContent = countValueForBank
 }
+
+
+
 function winOrLose() {
     let bothGotBlackjack = false
 
@@ -140,6 +153,8 @@ function winOrLose() {
         instructionsDOM.textContent = "Both Lose";
 
     }
+    gamePlayed = true;
+    dealCardToBankUntill = true;
     console.log(deck)
 }
 
