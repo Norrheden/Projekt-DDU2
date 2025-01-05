@@ -1,5 +1,11 @@
+@font-face {
+    font-family: poker; 
+    src: url(PokerInOctoberDemo-Dxm3.otf);
+}
+
 body {
     margin: 0;
+    font-family: poker;
 }
 section1 {
     display: flex;
@@ -29,6 +35,9 @@ h2 {
     left: 50%;
     transform: translate(-50%,-50%);
 
+}
+h1 {
+    width: 1100px;
 }
 
 #wallet {
@@ -85,8 +94,8 @@ section3 {
 }
 
 .cards {
-    height: 80px;
-    width: 60px;
+    height: 95px;
+    width: 75px;
     background-color: white;
     color: black;
     text-align: center;
@@ -103,8 +112,8 @@ p {
     margin: 0;
 }
 #counterForPlayer {
-    padding-top: 40px;
+    padding-top: 5px;
 }
 #counterForBank {
-    padding-top: 20px;
+    padding-top: 5px;
 }
