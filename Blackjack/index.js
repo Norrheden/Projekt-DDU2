@@ -24,7 +24,6 @@ let gameInProgress = false;
 
 
 placeBetButtonDOM.addEventListener("click",function(){
-    console.log("Hej")
     if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value) && !gameInProgress) {
         countValueForBank = 0;
         countValueForPlayer = 0;
@@ -36,7 +35,6 @@ placeBetButtonDOM.addEventListener("click",function(){
         deck = getDeck()
         dealCardToPlayer(2, deck)
         dealCardToBank(1, deck)
-        console.log(deck)
         instructionsDOM.textContent = "Hit or Stay"
     } 
 })
@@ -49,7 +47,6 @@ document.addEventListener("keydown",function(event){
 
 stayButtonDOM.addEventListener("click", function(){
     if(gameInProgress) {
-        console.log("jsiwec")
         dealCardToBank(1, deck)
         gameInProgress = false;
         while(countValueForBank <= 16) {
@@ -81,6 +78,10 @@ function dealCardToPlayer(nCards,deck) {
         let cardDiv = document.createElement("div");
         cardDiv.classList.add("cards")
         cardDiv.innerHTML = `${card.color}<br>${card.value}`
+        console.log(cardDiv.innerHTML);
+        if(cardDiv.textContent.includes("Heart") || cardDiv.textContent.includes("Club")) {
+            cardDiv.classList.add("redCard");
+        }
         playerHandDOM.appendChild(cardDiv);
         countValueForPlayer = countValueForPlayer + card.value
     }
@@ -98,6 +99,9 @@ function dealCardToBank(nCards,deck) {
         let cardDiv = document.createElement("div");
         cardDiv.classList.add("cards")
         cardDiv.innerHTML = `${card.color}<br>${card.value}`
+        if(cardDiv.textContent.includes("Heart") || cardDiv.textContent.includes("Club")) {
+            cardDiv.classList.add("redCard");
+        }
         bankHandDOM.appendChild(cardDiv);
         countValueForBank = countValueForBank + card.value
 
@@ -108,10 +112,11 @@ function dealCardToBank(nCards,deck) {
 
 
 function winOrLose() {
-    console.log("WinANDLOSe")
+
+    let bothGotBlackjack = false;
    
     if(countValueForPlayer === 21 && countValueForBank === 21) {
-        instructionsDOM.textContent = "Both Got Blackjack!";
+        instructionsDOM.textContent = "Both Got Blackjack!, Bet Agian";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`
         bothGotBlackjack = true 
     }
@@ -141,7 +146,7 @@ function winOrLose() {
         instructionsDOM.textContent = "Bank Won, Bet Again?";
         
     }
-    if(countValueForBank === countValueForPlayer) {
+    if(countValueForBank === countValueForPlayer && !bothGotBlackjack) {
         instructionsDOM.textContent = "Its Even, Bet Again?";
         walletMoneyDOM.textContent = `${Number(walletMoneyDOM.textContent) + Number(placeBetInputDOM.value)}`
     }
@@ -149,7 +154,6 @@ function winOrLose() {
         instructionsDOM.textContent = "Both Lose, Bet Again?";
 
     }
-    console.log(gameInProgress)
     if(Number(walletMoneyDOM.textContent == 0)) {
         instructionsDOM.textContent = `No Money Left`;
     }
