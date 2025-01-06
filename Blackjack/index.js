@@ -11,6 +11,7 @@ const counterForBankDOM = document.getElementById("counterForBank")
 const putButtonDOM = document.getElementById("putButton")
 const instructionsDOM = document.getElementById("instructions")
 const stayButtonDOM = document.getElementById("stayButton");
+const hitButtonDOM = document.getElementById("hitButton");
 
 let deck = [];
 let countValueForPlayer = 0;
@@ -39,11 +40,13 @@ placeBetButtonDOM.addEventListener("click",function(){
     } 
 })
 
-document.addEventListener("keydown",function(event){
-    if(event.code === "Space" && gameInProgress) {
+hitButtonDOM.addEventListener("click", function(){
+    if(gameInProgress) {
         dealCardToPlayer(1,deck)
     }
 })
+
+
 
 stayButtonDOM.addEventListener("click", function(){
     if(gameInProgress) {

@@ -74,16 +74,42 @@ section2 {
     gap: 5px;
 }
 .choiceButtons {
-    width: 300px;
-    height: 50px;
+    width: 275px;
+    height: 55px;
+    color: white;
+    border: 1px solid white;
+    font-size: 20px;
+    font-family: poker;
 }
+#stayButton {
+    background: #d12d36;
+    border-bottom: 10px solid #9f2329;
+}
+#hitButton {
+    background: #7dc734;
+    border-bottom: 10px solid #66a32a;
+}
+#stayButton:active {
+    border-bottom: 5px solid #831c22;
+}
+#hitButton:active {
+    border-bottom: 5px solid #598d25;;
+
+}
+
+
+
+
 section3 {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
 #placeBetInput {
-    height: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    width: 140px;
 }
 #placeBetButton {
     height: 40px;
