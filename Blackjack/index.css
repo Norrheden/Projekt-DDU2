@@ -7,11 +7,7 @@ body {
     margin: 0;
     font-family: poker;
 }
-section1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 #container {
     display: flex;
     justify-content: center;
@@ -96,9 +92,6 @@ section2 {
     border-bottom: 5px solid #598d25;;
 
 }
-
-
-
 
 section3 {
     display: flex;

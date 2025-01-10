@@ -1,6 +1,4 @@
 
-
-
 const placeBetInputDOM = document.getElementById("placeBetInput")
 const placeBetButtonDOM = document.getElementById("placeBetButton");
 const walletMoneyDOM = document.getElementById("walletMoney");
@@ -17,12 +15,6 @@ let deck = [];
 let countValueForPlayer = 0;
 let countValueForBank = 0;
 let gameInProgress = false;
-
-
-
-
-
-
 
 placeBetButtonDOM.addEventListener("click",function(){
     if(placeBetInputDOM.value >= 10 && Number(walletMoneyDOM.textContent) >= Number(placeBetInputDOM.value) && !gameInProgress) {
@@ -73,6 +65,7 @@ function getDeck(){
     return deck;
 
 }
+
 function dealCardToPlayer(nCards,deck) {
     for(let i = 0; i<nCards; i++) {
         const index = randNumber(deck)
@@ -81,7 +74,6 @@ function dealCardToPlayer(nCards,deck) {
         let cardDiv = document.createElement("div");
         cardDiv.classList.add("cards")
         cardDiv.innerHTML = `${card.color}<br>${card.value}`
-        console.log(cardDiv.innerHTML);
         if(cardDiv.textContent.includes("Heart") || cardDiv.textContent.includes("Club")) {
             cardDiv.classList.add("redCard");
         }
@@ -91,8 +83,6 @@ function dealCardToPlayer(nCards,deck) {
     counterForPlayerDOM.textContent = countValueForPlayer
 
 }
-
-
 
 function dealCardToBank(nCards,deck) {
     for(let i = 0; i<nCards; i++) {
@@ -111,8 +101,6 @@ function dealCardToBank(nCards,deck) {
     }
     counterForBankDOM.textContent = countValueForBank
 }
-
-
 
 function winOrLose() {
 
@@ -161,7 +149,6 @@ function winOrLose() {
         instructionsDOM.textContent = `No Money Left`;
     }
 }
-
 
 
 function randNumber(array) {
